@@ -4,7 +4,7 @@ import { Context } from "../store/appContext.js";
 import { Link } from "react-router-dom";
 
 function Planetas() {
-	const { store } = useContext(Context);
+	const { store, actions } = useContext(Context);
 
 	const arrCards = store.planetas.map((item, index) => {
 		return (
@@ -26,7 +26,7 @@ function Planetas() {
 								Learn more!
 							</Link>
 						</div>
-						<button className="btn btn-outline-warning ">
+						<button className="btn btn-outline-warning" onClick={() => actions.agregarFavoritos(item.name)}>
 							<i className="far fa-heart" />
 							<i className="fas fa-heart d-none" />
 						</button>
